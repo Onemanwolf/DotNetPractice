@@ -28,12 +28,12 @@ namespace JsonParser.Parser
         public async Task<Customer> CreateCustomer(string firstName, string lastName, string email, string phoneNumber, string street, string city, string state, string zipCode)
         {
 
-
+            // Check if the customer already exists
             var exist = await CustomerEmailExist(email);
              if(exist == true){
                 throw new Exception("Email already exist");
              }
-
+            // Create the customer
             var customer = new Customer
             {
                 FirstName = firstName,
